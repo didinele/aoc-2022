@@ -1,4 +1,3 @@
-import { reduceFunctions } from '../reduceFunctions.js';
 import type { Solution } from '../solution.js';
 
 // Enum values are used to resemble points earned from making the choice
