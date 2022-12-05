@@ -72,3 +72,20 @@ export function setsOverlap<T>(a: Set<T>, b: Set<T>): boolean {
 
 	return false;
 }
+
+export function linesToColumns(lines: string[], columnWidth = 1): string[] {
+	const columns: string[] = [];
+
+	for (const line of lines) {
+		const split = line.split('');
+		const loops = Math.ceil(split.length / columnWidth);
+
+		for (let idx = 0; idx < loops; idx++) {
+			const chunk = line.slice(idx * columnWidth, columnWidth + idx * columnWidth);
+			columns[idx] ??= '';
+			columns[idx] += chunk;
+		}
+	}
+
+	return columns;
+}

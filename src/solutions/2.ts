@@ -98,7 +98,7 @@ function determineResponse(opponent: Choice, outcome: WantedOutcome): Choice {
 
 const parse = (input: string) => input.split('\n').map((line) => line.split(' ') as [EncodedChoice, EncodedChoice]);
 
-export const solveDay2Part1: Solution = (raw) => {
+export const solveDay2Part1: Solution<number> = (raw) => {
 	const input: Part1Input = parse(raw).map(([opponent, response]): [Choice, Choice] => [
 		decodeChoice(opponent),
 		decodeChoice(response),
@@ -106,7 +106,7 @@ export const solveDay2Part1: Solution = (raw) => {
 	return input.reduce<number>((sum, [opponent, response]) => sum + determineWinner(opponent, response) + response, 0);
 };
 
-export const solveDay2Part2: Solution = (raw) => {
+export const solveDay2Part2: Solution<number> = (raw) => {
 	const input: Part2Input = parse(raw).map(([opponent, outcome]): [Choice, WantedOutcome] => [
 		decodeChoice(opponent),
 		decodeWantedOutcome(outcome as EncodedOutcome),

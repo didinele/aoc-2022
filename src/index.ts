@@ -24,7 +24,7 @@ const testInput = readFileSync(join(process.cwd(), 'tests', `${day}_input.txt`),
 const testExpectedOutput = readFileSync(join(process.cwd(), 'tests', `${day}_output_${part}.txt`), 'utf8');
 const testOutput = solve(testInput);
 
-if (Number.parseInt(testExpectedOutput, 10) !== testOutput) {
+if (testExpectedOutput !== String(testOutput)) {
 	console.error(`Test failed, got ${testOutput}, expected ${testExpectedOutput}`);
 	process.exit(1);
 }

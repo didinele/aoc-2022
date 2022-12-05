@@ -11,12 +11,12 @@ function parse(input: string): [Set<number>, Set<number>][] {
 	);
 }
 
-export const solveDay4Part1: Solution = (raw) => {
+export const solveDay4Part1: Solution<number> = (raw) => {
 	const input = parse(raw);
 	return input.filter(([a, b]) => setContains(a, b) || setContains(b, a)).length;
 };
 
-export const solveDay4Part2: Solution = (raw) => {
+export const solveDay4Part2: Solution<number> = (raw) => {
 	const input = parse(raw);
 	return input.filter(([a, b]) => setsOverlap(a, b)).length;
 };

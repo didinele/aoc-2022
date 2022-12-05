@@ -6,7 +6,7 @@ function calculatePriority(item: string): number {
 	return item === item.toUpperCase() ? charCode + 26 : charCode;
 }
 
-export const solveDay3Part1: Solution = (raw) => {
+export const solveDay3Part1: Solution<number> = (raw) => {
 	const compartments = raw
 		.split('\n')
 		.map((line): [string, string] => [line.slice(0, line.length / 2), line.slice(line.length / 2)]);
@@ -17,7 +17,7 @@ export const solveDay3Part1: Solution = (raw) => {
 	return priorities.reduce((sum, priority) => sum + priority, 0);
 };
 
-export const solveDay3Part2: Solution = (raw) => {
+export const solveDay3Part2: Solution<number> = (raw) => {
 	const grouped = [...(iterateInChunks(raw.split('\n'), 3) as Generator<[string, string, string]>)];
 	// eslint-disable-next-line id-length
 	return grouped.reduce<number>((sum, [a, b, c]) => {
